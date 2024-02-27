@@ -3,6 +3,15 @@
 
 Este es un proyecto de blog personal desarrollado con NestJS.
 
+## Conexión a MongoDB
+![image](https://github.com/Fuerzas-Armadas-ESPE/database-connection-helldivers/assets/67701130/a8b190e6-62c1-4835-ada1-d71e6bd02e0d)
+
+## Generación de Posts
+![image](https://github.com/Fuerzas-Armadas-ESPE/database-connection-helldivers/assets/67701130/d525dc1e-c560-424e-8b9c-c2628ee9123a)
+
+## Posts guardados en la Base de datos
+![image](https://github.com/Fuerzas-Armadas-ESPE/database-connection-helldivers/assets/67701130/f76b27b7-59b9-48b9-9816-1c9a3e2bccf9)
+
 ## Sugerencia
 
 ¡Antes de clonar o realizar un fork de este repositorio, te animamos a que intentes crear el proyecto desde cero siguiendo el tutorial!
