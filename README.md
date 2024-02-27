@@ -11,7 +11,7 @@ Este es un proyecto de blog personal desarrollado con NestJS.
 
 ## Posts guardados en la Base de datos
 ![image](https://github.com/Fuerzas-Armadas-ESPE/database-connection-helldivers/assets/67701130/dfc8aefc-95e6-45c4-bd5a-a54958a8e4e3)
-
+![image](https://github.com/Fuerzas-Armadas-ESPE/database-connection-helldivers/assets/67701130/f76b27b7-59b9-48b9-9816-1c9a3e2bccf9)
 
 ## Sugerencia
 
