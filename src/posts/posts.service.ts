@@ -1,33 +1,30 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
+import { Post } from './post.model';
 
 @Injectable()
 export class PostsService {
-  constructor(@InjectModel('Post') private readonly postModel: Model<any>) {}
+  constructor(@InjectModel(Post.name) private postModel: Model<Post>) {}
 
-  async getAllPosts(): Promise<any[]> {
-    return await this.postModel.find().exec();
+  async findAll(): Promise<Post[]> {
+    return this.postModel.find().exec();
   }
 
-  async getPost(id: string): Promise<any | null> {
-    return await this.postModel.findById(id).exec();
+  async findById(id: string): Promise<Post | null> {
+    return this.postModel.findById(id).exec();
   }
 
-  async createPost(postData: any): Promise<any> {
-    try {
-      const createdPost = new this.postModel(postData);
-      return await createdPost.save();
-    } catch (error: any) {
-      throw new InternalServerErrorException(error.message);
-    }
+  async create(post: Post): Promise<Post> {
+    const newPost = new this.postModel(post);
+    return newPost.save();
   }
 
-  async updatePost(id: string, postData: any): Promise<any | null> {
-    // Implementa el método de actualización si es necesario
+  async update(id: string, post: Post): Promise<Post | null> {
+    return this.postModel.findByIdAndUpdate(id, post, { new: true }).exec();
   }
 
-  async deletePost(id: string): Promise<void> {
-    // Implementa el método de eliminación si es necesario
+  async delete(id: string): Promise<Post | null> {
+    return this.postModel.findByIdAndDelete(id).exec();
   }
 }

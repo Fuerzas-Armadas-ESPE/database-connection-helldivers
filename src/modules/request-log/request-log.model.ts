@@ -1,20 +1,28 @@
-// request-log.model.ts
-import * as mongoose from 'mongoose';
+import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-export const RequestLogSchema = new mongoose.Schema({
-  method: String,
-  path: String,
-  // ... otras propiedades ...
-});
+@Schema()
+export class RequestLog extends Document {
+  @Prop({ required: true })
+  method!: string;
 
-export interface RequestLogModel extends mongoose.Document {
-  method: string;
-  path: string;
-  // ... otras propiedades ...
+  @Prop({ required: true })
+  originalUrl!: string;
+
+  @Prop({ required: true })
+  statusCode!: number;
+
+  @Prop({ required: true })
+  contentLength!: number;
+
+  @Prop({ required: true })
+  elapsedTime!: number;
+
+  @Prop({ required: true })
+  userAgent!: string;
+
+  @Prop({ required: true })
+  ip!: string;
 }
 
-// Exporta el modelo para su uso en otros archivos
-export const RequestLogModel = mongoose.model<RequestLogModel>(
-  'RequestLog',
-  RequestLogSchema,
-);
+export const RequestLogSchema = SchemaFactory.createForClass(RequestLog);
